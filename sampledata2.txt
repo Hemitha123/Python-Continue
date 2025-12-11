@@ -1,0 +1,14 @@
+"name","gender","palce","course","fee"
+ravi,m,hassan,python,5000
+amar,m,bengaluru,c++,4500
+kiran,m,mysuru,rust,5500
+ankita,f,hubli,c++,4500
+Suresh,m,bengaluru,python,5000
+Rama,f,mysuru,rust,5500
+Krishna,m,hassan,python,5000
+Karshima,f,bengaluru,rust,5500
+Rani,f,hubli,c++,4500
+Chandan,m,mysuru,python,5000
+Reena,f,hubli,rust,5500
+Veni,f,hassan,c++,4500
+antony,m,bengaluru,python,5000

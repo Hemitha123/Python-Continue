@@ -1,0 +1,37 @@
+1.Python is called dynamic typing language because it has 
+predefined variables.
+
+2.Python data types are classified into 2 types: 
+   *Simple data type
+   *Complex data type
+
+3.List is collection of heterogeneous data and are mutable 
+that is we can change the data.
+  Tuple is also collection of heterogeneous data and are 
+immutable that is we cannot change the data.
+
+4.For loop-it keep repeating the instruction for give specific
+time.
+  While loop-it keep repeating the instructions until the give
+condition satisfied.
+
+5.Function is a set of instruction used to do the task.
+6.Function have 2 types:
+   *User defined functions
+   *liberary functions
+
+7.List Comprehension is used to write the instructions in single 
+line making it shorter using the formate where the output is 
+given first and and the instruction after the output.
+
+8.We can reverse a given number by using indexing and also by 
+using reverse function, the steps is using indexing x[::-1] 
+  using function is name.reverse()
+
+9.In positional argument the order of the parameter should be
+in the same order but in the keyword argument even if we 
+change the order of the parament it accepts since we give the 
+name for that parameter and it accepts according to it.
+
+10.Zip() is used to combine two or more list and make a single
+list.

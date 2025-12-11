@@ -1,0 +1,10 @@
+"name","gender","branch","s1","s2","s3","s4","s5","s6"
+ravi,m,cs,45,56,87,94,34,87
+sahana,f,is,56,92,87,69,90,59
+ramesh,m,mech,78,59,70,69,58,97
+siya,f,cs,48,58,65,45,36,46
+kerthi,m,is,87,55,60,78,97,78
+kiran,m,cs,58,69,78,99,67,70
+Chandan,m,is,87,59,66,59,97,49
+Veni,f,mech,46,78,55,76,56,76
+Karshima,f,cs,76,86,97,80,65,76

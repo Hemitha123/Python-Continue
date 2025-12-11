@@ -1,0 +1,6 @@
+"idplace","placename"
+1,hassan
+2,bengaluru
+3,mysuru
+4,hubli
+5,dharwad
