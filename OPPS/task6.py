@@ -1,4 +1,4 @@
-#multiLevel Inheritance
+#MultiLevel Inheritance
 
 class animal():    #class
     def sound(self):    #method
@@ -12,7 +12,7 @@ class puppy(dog):
     def sound(self):
         print("Puppy:Yip")
 
-a1=animal()    #objects
+a1=animal()    #object
 a1.sound()
 a2=dog()
 a2.sound()
