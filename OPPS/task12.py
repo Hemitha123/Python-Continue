@@ -15,8 +15,8 @@ class sleeptracker():
         
 class healthreport(steptracker,sleeptracker):
     def __init__(self,steps,hours_slept):
-        steptracker.__init__(self,steps)
-        sleeptracker.__init__(self,hours_slept)
+        steptracker.__init__(self,steps)              #called parent1(steptracker)
+        sleeptracker.__init__(self,hours_slept)       #called parent2(sleeptracker)
 
     def daily_report(self):
         print(f"The calories burnt is:{self.cal}")
