@@ -22,14 +22,11 @@ class exam(student):
         self.sub1=sub1
         self.sub2=sub2
         self.sub3=sub3
-
     def calculate_average(self):
         tot=self.sub1+self.sub2+self.sub3
         self.avg=tot//3
-
     def display(self):
         print(f"The Average of the marks is {self.avg}")
-
 e1=exam("amar",23,101,87,90,94)
 e1.intro()
 e1.disrol()
