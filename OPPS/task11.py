@@ -1,5 +1,4 @@
 #Hierarchical Inheritance
-
 class employee():
     def __init__(self,name,basic_salary):
         self.name=name
@@ -7,31 +6,24 @@ class employee():
     def intro(self):
         print(f"the name is:{self.name}")
         print(f"the basic salary is:{self.basic_salary}")
-
     def calculate_bonus(self):
         self.bonus=self.basic_salary*0.10
-
     def disbon(self):
         print(f"The bonus is:{self.bonus}")
-
 class developer(employee):
     def __init__(self,name,basic_salary,lines_of_code):
         super().__init__(name,basic_salary)
         self.lines_of_code=lines_of_code
-    
     def productivity_score(self):
         self.loc=(self.lines_of_code)/100
-
     def disloc(self):
         print(f"The productivity score is:{self.loc}")
-
 class manager(employee):
     def __init__(self,name,basic_salary,team_size):
         super().__init__(name,basic_salary)
         self.team_size=team_size
     def team_allowance(self):
         self.ta=self.team_size*500
-
     def dista(self):
         print(f"The team allowance is:{self.ta}")
 e1=developer("amar",50000,1000)
