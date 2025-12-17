@@ -3,10 +3,9 @@
 class steptracker():
     def __init__(self,steps):
         self.steps=steps
-    
     def calories_burned(self):
         self.cal=self.steps*0.04
-        
+
 class sleeptracker():
     def __init__(self,hours_slept):
         self.hours_slept=hours_slept
@@ -17,7 +16,6 @@ class healthreport(steptracker,sleeptracker):
     def __init__(self,steps,hours_slept):
         steptracker.__init__(self,steps)              #called parent1(steptracker)
         sleeptracker.__init__(self,hours_slept)       #called parent2(sleeptracker)
-
     def daily_report(self):
         print(f"The calories burnt is:{self.cal}")
         print(f"The sleep score is:{self.sc}")
