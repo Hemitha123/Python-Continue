@@ -1,7 +1,7 @@
 #festival Polymorphism
 
 class festival():
-    def celebrate(self):
+    def cel(self):
         print("Festivals")
 class Diwali(festival):
     def cel(self):
@@ -17,6 +17,6 @@ diwali=Diwali()
 christmas=Christmas()
 eid=Eid()
 Festival=festival()
-Festival.celebrate()
+Festival.cel()
 for x in (diwali,christmas,eid):
     x.cel()

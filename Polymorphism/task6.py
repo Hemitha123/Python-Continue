@@ -1,13 +1,13 @@
 #Transport System
 
 class transport():
-    def __init__(self,distance):
+    def __init__(self,distance):       #initialization
         self.distance=distance
     def fare(self):
         print("The Fare for different transport")
 class bus(transport):
     def fare(self):
-        f=self.distance*10
+        f=self.distance*10      #calculates the distance
         print(f"The fare for Bus transport is {f}")
 class train(transport):
     def fare(self):
