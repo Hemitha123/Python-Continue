@@ -31,6 +31,3 @@ print(matrix[0:2,2:4])
 
 #extract 13,14 and 18,19
 print(matrix[2:4,3:])
-
-
-
