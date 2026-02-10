@@ -1,35 +1,36 @@
 class stack():
     def __init__(self):
-        self.item=[]
+        self.items=[]
     def isEmpty(self):
-        return self.item==[]
-    def push(self):
-        self.item.insert(0,item)
+        return self.items==[]
+    def push(self,item):
+        self.items.insert(0,item)
     def pop(self):
-        self.item.pop(0)
+        self.items.pop(0)
     def peek(self):
-        return self.item[0]
+        return self.items[0]
     def size(self):
-        return len(self.item)
+        return len(self.items)
 S=stack()
 print(S.isEmpty())
-S.push(2)
-S.push(4)
-S.push(6)
-S.push(8)
+try:
+    S.push(2)
+    S.push(4)
+    S.push(6)
+    S.push(8)
+    print(S.items)
 
-for x in S.items:
-    print(x)
+    print(S.isEmpty())
 
-print(S.isEmpty())
-
-S.pop(2)
-for x in S.items:
-    print(x)
-S.push(10)
-for x in S.items:
-    print(x)
-S.pop()
-for x in S.items:
-    print(x)
+    S.pop()
+    print(S.items)
+except IndexError:
+    print("No Item.Pop from empty list")
+try:
+    S.peek()
+    print(S.items)
+except IndexError:
+    print("No Item.List index out of range")
+else:
+    print("Done")
 print(len(S.items))
