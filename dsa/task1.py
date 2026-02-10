@@ -14,13 +14,13 @@ class stack():  #class stack
 S=stack()       #object called S
 print(S.isEmpty())
 try:
-    S.push(2)
-    S.push(4)
-    S.push(6)
-    S.push(8)
-    print(S.items)
+    # S.push(2)
+    # S.push(4)
+    # S.push(6)
+    # S.push(8)
+    # print(S.items)
 
-    print(S.isEmpty())
+    # print(S.isEmpty())
 
     S.pop()
     print(S.items)
