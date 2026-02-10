@@ -1,7 +1,6 @@
 import numpy as np 
 matrix=np.arange(25).reshape(5,5)
 print(matrix)
-
 #extract 12,13 and 17,18
 print(matrix[2:4,2:4])
 
