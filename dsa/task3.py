@@ -16,7 +16,7 @@ class employee:
         print(f"Dno:{self.dno}")
         print(f"Salary:{self.salary}")
         print(f"Tax:{self.tax}")
-        print(f"NetSalary:{self.net_sal}")
+        print(f"NetSalary:{self.cal_net_sal()}")
 class Node:
     def __init__(self,emp):
         self.emp=emp          #assigs to the node
@@ -53,7 +53,7 @@ class EmplList:
                 current.emp.display()
                 found=True
                 break
-            current=current.next
+                current=current.next
             if not found:
                 print("Not found")
 emp_list=EmplList()
