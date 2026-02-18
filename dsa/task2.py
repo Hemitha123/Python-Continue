@@ -1,56 +1,55 @@
 class Node:
     def __init__(self, data):
-        self.data = data    # Assigns the given data to the node
-        self.next = None     # Initialize the next attribute to null
+        self.data = data    #assigns the data to the node
+        self.next = None     #initialize to null
         
 class LinkedList:
     def __init__(self):
-        self.head = None     # Initialize head as None
+        self.head = None     #initialize head as None
         
     def insertAtBeginning(self, new_data):
-        new_node = Node(new_data)   # Create a new node 
-        new_node.next = self.head    # Next for new node becomes the 
-        self.head = new_node    # Head now points to the new node
+        new_node = Node(new_data)   #create a new node 
+        new_node.next = self.head   
+        self.head = new_node    
         
     def printList(self):
-        temp = self.head     # Start from the head of the list
+        temp = self.head     #start from the head
         while temp:
-            print(temp.data,end=' ')     # Print the data in the current node
-            temp = temp.next     # Move to the next node
-        print()      # Ensures the output is followed by a new line
+            print(temp.data,end=' ')     #print the data 
+            temp = temp.next     #move to the next node
+        print()     
         
     def insertAtEnd(self, new_data):
-        new_node = Node(new_data)   # Create a new node
+        new_node = Node(new_data) 
         if self.head is None:
-            self.head = new_node    # If the list is empty, make the new node the head
+            self.head = new_node    
             return
         last = self.head 
-        while last.next:    # Otherwise, traverse the list to find the last node
+        while last.next:    
             last = last.next
-        last.next = new_node    # Make the new node the next node of the last node
+        last.next = new_node    
         
     def deleteFromBeginning(self):
         if self.head is None:
-            return "The list is empty"              # If the list is empty, return this string
-        self.head = self.head.next                  # Otherwise, remove the head by making the next node the new head
-
+            return "The list is empty"          #if the list is empty,return this string
+        self.head = self.head.next                 
     def deleteFromEnd(self): 
         if self.head is None:
             return "The list is empty" 
         if self.head.next is None:
-            self.head = None         # If there's only one node, remove the head by making it None
+            self.head = None      
             return
         temp = self.head
-        while temp.next.next:  # Otherwise, go to the second-last node
+        while temp.next.next:  
             temp = temp.next
-        temp.next = None     # Remove the last node by setting the next pointer of the second-last node to None
+        temp.next = None   
     
     def search(self, value):
-        current = self.head  # Start with the head of the list
-        position = 1  # Counter to keep track of the position
-        while current: # Traverse the list
-            if current.data == value: # Compare the list's data to the search value
-                return f"Value '{value}' found at position {position}" # Print the value if a match is found
+        current = self.head      #start with the head of the list
+        position = 1        #counts position
+        while current: 
+            if current.data == value: 
+                return f"Value '{value}' found at position {position}"
             current = current.next
             position += 1
         return f"Value '{value}' not found in the list"
