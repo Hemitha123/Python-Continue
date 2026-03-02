@@ -1,0 +1,61 @@
+create table student_mark		--creates the table
+(
+studid int identity(101,1),			--initialization
+studname varchar(30),
+gender varchar(10),
+branch varchar(30),
+sub1 numeric(4,2),
+sub2 numeric(4,1),
+sub3 numeric(4,1),
+sub4 numeric(4,1),
+sub5 numeric(4,1),
+sub6 numeric(4,1))
+insert into student_mark values('Amar','Male','CS',56,48,39,35,67,98)		--inserting the data
+insert into student_mark values('Amrutha','Female','IS',34,67,45,65,87,78)
+insert into student_mark values('Arjun','Male','EC',70,88,90,42,22,55)
+insert into student_mark values('Bindu','Female','Mech',64,89,67,90,70,55)
+insert into student_mark values('Karthik','Male','CS',45,54,36,39,66,60)
+insert into student_mark values('Manya','Female','IS',88,90,99,60,66,58)
+insert into student_mark values('Suma','Female','CS',56,48,39,35,67,98)
+insert into student_mark values('Riya','Female','CS',46,48,39,35,67,88)
+insert into student_mark values('Siya','Female','Mech',86,98,39,35,27,78)
+insert into student_mark values('Umar','Male','CS',45,49,49,25,87,56)
+insert into student_mark values('Mike','Male','EE',66,78,49,75,37,78)
+insert into student_mark values('Erica','Female','AI',98,88,91,95,87,98)
+insert into student_mark values('Steve','Male','EC',76,98,59,65,67,88)
+insert into student_mark values('Jonathan','Male','CS',56,58,29,25,67,48)
+insert into student_mark values('Max','Female','AI',66,78,89,55,67,48)
+insert into student_mark values('Julia','Female','EE',56,48,39,75,67,78)
+select * from student_mark		--displays the data 
+delete from student_mark where studid=116		--deletes the given data
+
+alter table student_mark		--alterate or adds the coloumn
+add total numeric(10,2)
+
+update student_mark
+set total = sub1+sub2+sub3+sub4+sub5+sub6	--updates the table with the condition
+
+alter table student_mark
+add average numeric(10,2)
+
+update student_mark
+set average = (sub1+sub2+sub3+sub4+sub5+sub6)/6
+
+alter table student_mark
+add grade varchar(6)
+
+update student_mark 
+set grade = 'A'
+where  80<=average and average<100;
+
+update student_mark 
+set grade = 'B'
+where 60<=average and average<80;
+
+update student_mark 
+set grade = 'C'
+where 35<=average and average<60;
+
+update student_mark 
+set grade = 'F'
+where sub1<35 or sub2<35 or sub3<35 or sub4<35 or sub5<35 or sub6<35

@@ -1,0 +1,52 @@
+Week1(19/2)
+
+select * from stud_tabl  --selects the whole table and displays
+select name,courses from stud_tabl --displays only name and courses
+
+
+week1(20/2)
+create table employee		--creates the table
+(
+empid int identity(1001,1),
+empname varchar(30),
+gender varchar(10),
+designation varchar(50),
+place varchar(100),
+salary numeric(8,2) )
+insert into employee values('Arun','Male','Developer','Hassan',50000)				--inserts all the values to the table
+insert into employee values('Amoga','Female','Sales Maneger','Bengaluru',40000)
+insert into employee values('varun','Male','Developer','Mysuru',70000)
+insert into employee values('Riya','Female','Data Science','Hassan',70000)
+insert into employee values('Siya','Female','Developer','Bengaluru',50000)
+insert into employee values('Arjun','Male','Team lead','Hassan',50000)
+select * from employee				--displays all the data in the table
+select * from employee where salary>=30000		--displaays the employee's salary whose greater thna 30000
+select * from employee where salary=50000 and place='Hassan'		--displays the salary with salary equal to 50000 and place hassan
+select * from employee where designation='Developer' or designation='Data Science'--displays the designation of developer or data science
+select * from employee where place in ('Hassan','Mysuru')    --displays the place of hassan and mysuru only
+
+week1(23/2)
+
+--order by 
+select * from employee where salary=40000	--if salary equal to 40000
+select * from employee where salary between 40000 and 50000		--between 40000 to 50000
+select * from employee where empname like 'a%'		--only names staring with a 
+select * from employee where empname like '%a'		--only the name ends with a
+select * from employee where empname like '%a%' and gender='Female'   --the name swith a in name 
+select * from employee order by designation		--sorts the designation is ascending order
+select * from employee order by designation desc	----sorts the designation is decending order
+select * from employee order by empname,place		--sorts the employee and place with priorty is ascending order
+select * from employee where salary=50000 order by empname		--salary with 50000 employee name is sorted
+--sum,min,max,avg,count
+select sum(salary) from employee		--provides the sum of salary
+select min(salary),max(salary)from employee		--provides min and max salaary of employee
+select count(*) from employee where salary =50000   --counts the employee with salary 50000
+--distinct:
+select distinct designation from employee		--unique designation is displayed
+select distinct place from employee		--unique place is displayed
+--group by and having
+select designation,sum(salary) from employee group by designation having designation='Developer'	--gives the the sum of designation having developer 
+
+
+
+

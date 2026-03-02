@@ -1,0 +1,98 @@
+IF OBJECT_ID('loan', 'U') IS NOT NULL DROP TABLE loan;
+IF OBJECT_ID('book', 'U') IS NOT NULL DROP TABLE book;
+IF OBJECT_ID('member_tabl', 'U') IS NOT NULL DROP TABLE member_tabl;
+
+
+
+
+
+
+
+create table books
+(
+bookid int primary key identity(1001,1),
+title varchar(100),
+author varchar(50),
+genre varchar(50),
+availability_status varchar(50)
+)
+
+create table member_tabls
+(
+memberid int primary key identity(101,1),
+membname varchar(50),
+email varchar(50),
+memebership_date date
+)
+
+create table loans
+(
+loanid int primary key identity(501,1),
+bookid int,
+memberid int,
+loan_date date,
+return_date varchar(50)
+)
+
+alter table loans
+add constraint lnb1_id
+foreign key(bookid)references books
+
+alter table loans
+add constraint lnm1_id 
+foreign key(memberid)references member_tabls
+
+select * from books
+select * from member_tabls
+select * from loans
+
+insert into books values('The Blue Umbrella','Ruskin Bond','Children Fiction','Available')
+insert into books values('Grandmas Bag of Stories','Sudha Murthy','Children Fiction','Available')
+insert into books values('People called Mumbai','Vinitha Ramchandani','Anthology','Unavailable')
+insert into books values('The Guide','R K Narayan','Classic Fiction','vailable')
+insert into books values('Ghachar Ghochar','Vivek Shanbag','Literary Fiction','Unavailable')
+insert into books values('Untouchable','Mulk Raj Anand','Social Realism','Unavailable')
+insert into books values('Q&A','Vikas Swarup','Contemporary Thriller','Available')
+insert into books values('Wings of Fire','A P J Abdul Kalam','Autobiography','Available')
+
+insert into member_tabls values('Ravi','ravi@gmail.com','01/04/2026')
+insert into member_tabls values('Ram','ram@gmail.com','05/05/2026')
+insert into member_tabls values('Siya','siya@gmail.com','01/06/2026')
+insert into member_tabls values('Rahul','rahul@gmail.com','09/10/2026')
+insert into member_tabls values('Tina','tina@gmail.com','06/22/2026')
+insert into member_tabls values('Arun','arun@gmail.com','08/18/2026')
+insert into member_tabls values('Naveen','naveen@gmail.com','05/12/2026')
+insert into member_tabls values('Aysha','aysha@gmail.com','06/04/2026')
+insert into member_tabls values('Manya','manya@gmail.com','07/08/2026')
+insert into member_tabls values('Rani','rani@gmail.com','08/04/2026')
+insert into member_tabls values('Likhith','likhith@gmail.com','03/11/2026')
+
+insert into loans values (1004,101,'05/11/2026','02/22/2027')
+insert into loans values (1006,102,'10/01/2026','not yet')
+insert into loans values (1005,105,'09/22/2026','04/18/2027')
+insert into loans values (1003,106,'08/05/2026','03/11/2027')
+insert into loans values (1002,102,'11/06/2026','not yet')
+insert into loans values (1008,101,'12/03/2026','06/05/2027')
+insert into loans values (1004,101,'07/14/2026','not yet')
+insert into loans values (1001,103,'09/11/2026','02/04/2027')
+insert into loans values (1001,103,'10/12/2026','not yet')
+insert into loans values (1001,103,'12/17/2026','not yet')
+insert into loans values (1001,103,'08/21/2026','not yet')
+
+--Find all books currently on loan.
+
+select b.bookid,b.title,l.loanid from books b
+inner join loans l on b.bookid=l.bookid
+where l.return_date='not yet'
+
+--List members who have borrowed more than 3 books.
+select m.memberid ,m.membname,count(l.loanid) from member_tabls m
+inner join loans l on m.memberid=l.memberid
+group by m.memberid,m.membname
+having count(l.loanid)>3
+
+--Retrieve overdue books (loan date older than 30 days without return date)
+
+select m.memberid,m.membname,l.loanid from member_tabls m
+inner join loans l on m.memberid=l.memberid
+where l.return_date='not yet'and  l.loan_date>'08/01/2026'

@@ -1,0 +1,133 @@
+
+IF OBJECT_ID('products', 'U') IS NOT NULL DROP TABLE products;
+IF OBJECT_ID('customers', 'U') IS NOT NULL DROP TABLE customers;
+IF OBJECT_ID('orders', 'U') IS NOT NULL DROP TABLE orders;
+IF OBJECT_ID('order_details', 'U') IS NOT NULL DROP TABLE order_details;
+
+
+
+create table products
+(
+prodid int primary key identity(101,1),
+prodname varchar(50),
+category varchar(50),
+price numeric(8,2),
+stock_quantity varchar(50)
+)
+
+create table customers
+(
+custid int primary key identity(201,1),
+custname varchar(50),
+email varchar(100),
+city varchar(100)
+)
+
+create table orders
+(
+orderid int primary key identity(301,1),
+custid int,
+order_date varchar(50),
+total_amt numeric(8,2)
+)
+
+create table order_details
+(
+order_detail_id int primary key identity(401,1),
+orderid int,
+prodid int,
+quantity varchar(10),
+subtotal numeric(8,2)
+)
+
+alter table order_details
+add constraint odp_id
+foreign key(prodid)references products
+
+alter table order_details
+add constraint odo_id
+foreign key(orderid)references orders
+
+select * from products
+select * from orders
+select * from customers
+select * from order_details
+
+insert into products values('apple', 'fruit', 50.00, '100')
+insert into products values('banana', 'fruit', 20.00, '150')
+insert into products values('carrot', 'vegetable', 15.50, '200')
+insert into products values('potato', 'vegetable', 30.00, '250')
+insert into products values('milk', 'dairy', 40.00, '120')
+insert into products values('cheese', 'dairy', 150.00, '50')
+insert into products values('bread', 'bakery', 25.00, '80')
+insert into products values('butter', 'dairy', 90.00, '60')
+insert into products values('tomato', 'vegetable', 35.00, '180')
+insert into products values('orange', 'fruit', 45.00, '130')
+
+insert into customers values('alice', 'alice@example.com', 'bangalore')
+insert into customers values('bob', 'bob@example.com', 'chennai')
+insert into customers values('charlie', 'charlie@example.com', 'mumbai')
+insert into customers values('david', 'david@example.com', 'hyderabad')
+insert into customers values('emma', 'emma@example.com', 'delhi')
+insert into customers values('frank', 'frank@example.com', 'kolkata')
+insert into customers values('grace', 'grace@example.com', 'pune')
+insert into customers values('harry', 'harry@example.com', 'jaipur')
+insert into customers values('irene', 'irene@example.com', 'lucknow')
+insert into customers values('jack', 'jack@example.com', 'ahmedabad')
+
+insert into orders values(201, '2026-02-20', 150.00)
+insert into orders values(202, '2026-02-21', 200.50)
+insert into orders values(203, '2026-02-22', 300.75)
+insert into orders values(204, '2026-02-23', 120.00)
+insert into orders values(205, '2026-02-24', 450.25)
+insert into orders values(206, '2026-02-25', 220.00)
+insert into orders values(207, '2026-02-26', 310.50)
+insert into orders values(208, '2026-02-27', 180.00)
+insert into orders values(209, '2026-02-28', 275.75)
+insert into orders values(210, '2026-02-29', 400.00)
+
+insert into order_details values(301, 101, '2', 100.00)
+insert into order_details values(301, 102, '3', 60.00)
+insert into order_details values(302, 103, '5', 77.50)
+insert into order_details values(302, 104, '4', 120.00)
+insert into order_details values(303, 105, '2', 80.00)
+insert into order_details values(304, 106, '1', 150.00)
+insert into order_details values(305, 107, '6', 150.00)
+insert into order_details values(306, 108, '2', 180.00)
+insert into order_details values(307, 109, '3', 105.00)
+insert into order_details values(308, 110, '4', 180.00)
+
+
+
+
+update orders 
+set order_date='2026-01-14'
+where custid=201
+
+update orders 
+set order_date='2026-02-02'
+where custid=205
+
+update orders 
+set order_date='2026-01-01'
+where custid=209
+
+update orders 
+set order_date='2026-01-11'
+where custid=206
+
+--Find the top 5 best-selling products.
+select p.prodid,p.prodname,max(o.quantity)top_5_product from products p
+inner join order_details o on p.prodid=o.prodid
+group by p.prodid,p.prodname
+order by max(o.quantity) desc
+offset 0 rows fetch next 5 rows only
+
+--List customers who placed orders in the last 30 days.
+
+select c.custid,c.custname,o.order_date from customers c
+inner join orders o on c.custid=o.custid
+where o.order_date between '2026-02-01' and '2026-03-01' 
+
+--Calculate total revenue generated per product category
+
